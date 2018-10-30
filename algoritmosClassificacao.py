@@ -11,16 +11,11 @@ def euclideanDistance(data1, data2, length):
 	return np.sqrt(distance)
 
 def nn(trainingSet, testInstance):
- 
 	distances = {}
- 
 	length = testInstance.shape[1]
 	
-	
 	for x in range(len(trainingSet)):
-		
 		dist = euclideanDistance(testInstance, trainingSet.iloc[x], length)
-
 		distances[x] = dist[0]
  
 	sorted_d = sorted(distances.items(), key=operator.itemgetter(1))
@@ -54,12 +49,9 @@ def dmc(trainingSet, testInstance):
 	print("Centroides: ")
 	print(testCentroid)
 
-
 	length = testInstance.shape[1]
-	for x in range(len(testCentroid)):
-		
+	for x in range(len(testCentroid)):	
 		dist = euclideanDistance(testInstance, testCentroid.iloc[x], length)
-
 		distances[x] = dist[0]
  
 	sorted_d = sorted(distances.items(), key=operator.itemgetter(1))
@@ -70,16 +62,11 @@ def dmc(trainingSet, testInstance):
 	return (response, neighbor)
 	
 def knn(trainingSet, testInstance, k):
- 
 	distances = {}
- 
 	length = testInstance.shape[1]
 	
-	
 	for x in range(len(trainingSet)):
-		
 		dist = euclideanDistance(testInstance, trainingSet.iloc[x], length)
-
 		distances[x] = dist[0]
  
 	sorted_d = sorted(distances.items(), key=operator.itemgetter(1))
@@ -100,7 +87,6 @@ def knn(trainingSet, testInstance, k):
 
 	sortedVotes = sorted(classVotes.items(), key=operator.itemgetter(1), reverse=True)
 	return(sortedVotes[0][0], neighbors)
-
 
 testSet = [[7.2, 3.6, 5.1, 2.5]]
 test = pd.DataFrame(testSet)
